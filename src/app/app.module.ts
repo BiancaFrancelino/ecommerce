@@ -8,6 +8,8 @@ import { AsideComponent } from './aside/aside.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
+import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CategoriaComponent } from './categoria/categoria.component';
     AsideComponent,
     FooterComponent,
     HeaderComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CategoriaListarComponent,
+    CategoriaFormComponent
   ],
   imports: [
     BrowserModule,
