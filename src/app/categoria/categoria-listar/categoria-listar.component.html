@@ -1,1 +1,27 @@
-<p>categoria-listar works!</p>
+
+<div class="card-body">
+    <button class="btn btn-primary" style="float:right;margin-bottom:10px;background-color: #4154f1;" routerLink="../form">
+        <span class="bi bi-plus"></span> Novo
+    </button>
+
+    <h5 class="card-title">Categoria</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let categoria of dados">
+            <th scope="row">1</th>
+            <td>{{ categoria.descricao}}</td>
+            <td><i class="bi bi-pencil"></i></td>
+            <td><i class="bi bi-trash"></i></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
