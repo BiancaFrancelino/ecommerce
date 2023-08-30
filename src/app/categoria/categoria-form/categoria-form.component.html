@@ -1,18 +1,17 @@
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Cadastro de Categoria</h5>
+  <div class="card-body">
+    <h5 class="card-title">Cadastro de Categoria</h5>
 
-      <form>
-        <div class="row mb-3">
-          <label for="descricao" class="form-label">Descrição da Categoria</label>
-          <input type="text" name="descricao" class="form-control" id="descricao" [(ngModel)]="descricao" >
-        </div>
-       
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary m-2" (click)="salvar()">Salvar</button>
-          <button type="reset" class="btn btn-secondary m-2" routerLink="../listar">Voltar</button>
-        </div>
-
-      </form>
-    </div>
+    <form>
+      <div class="row mb-3">
+        <label for="descricao" class="form-label">Descrição da Categoria</label>
+        <input type="text" name="descricao" class="form-control" id="descricao" [(ngModel)]="descricao" >
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary m-2" (click)="salvar()">Salvar</button>
+        <button type="reset" class="btn btn-secondary m-2" routerLink="../listar">Voltar</button>
+      </div>
+    </form>
   </div>
+</div>
