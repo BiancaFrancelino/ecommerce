@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-form',
@@ -9,14 +9,60 @@ import { CategoriaService } from '../categoria.service';
 })
 export class CategoriaFormComponent {
   public descricao:string = '';
+  public indice:string = '';
+  public nextId:number = 0;
 
   constructor(
-    public categoriaService:CategoriaService
-  ){}
+    public categoriaService:CategoriaService,
+    public activated_route:ActivatedRoute,
+    public router:Router
+  ){
+    this.activated_route.params.subscribe((params:any) => {
+      if(params.indice === undefined)
+        return;
 
-  salvar(){
-    this.categoriaService.salvar({
-      descricao:this.descricao
+      this.categoriaService.ref().child('/' + params.indice).on('value', (snapshot:any) => {
+        let dado:any = snapshot.val();
+        this.indice = params.indice;
+        this.descricao = dado.descricao;
+      });
     });
   }
+
+  salvar() {
+    if(this.descricao == '') {
+      document.querySelector('#descricao')?.classList.add('has-errors');
+      return;
+    }
+
+    if(this.indice === '') {
+      this.categoriaService.salvar({
+        //id : this.nextId > 0 ? this.nextId : 1,
+        descricao : this.descricao
+      })
+    }else {
+      let dados = {
+        descricao:this.descricao
+      };
+      this.categoriaService.editar(this.indice, dados);
+    }
+    this.router.navigate(['/categoria']);
+  }
+
+  /*ngOnInit(): void {
+    this.categoriaService.listar()
+    .on('value',(snapshot:any) => {
+
+      let response = snapshot.val();
+
+      if (response == null) return;
+      Object.values( response )
+      .forEach(
+        (e:any,i:number) => {
+          this.nextId = e.id + 1;
+        }
+      );
+    });
+  }*/
 }
+ 

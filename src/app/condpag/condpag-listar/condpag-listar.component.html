@@ -1,0 +1,34 @@
+
+<div class="card-body">
+    <button class="btn btn-primary" style="float:right;margin-bottom:10px;background-color: #4154f1;" routerLink="../form">
+        <span class="bi bi-plus"></span> Novo
+    </button>
+
+    <h5 class="card-title">Condição de Pagamento</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let condpag of dados">
+            <th scope="row">1</th>
+            <td>{{ condpag.descricao}}</td>
+            <td>
+                <span class="bi bi-pencil"
+                    (click)="editar(condpag.indice)"
+                ></span></td>
+            <td>
+                <span class="bi bi-trash" 
+                    (click)="excluir(condpag.indice)"
+                ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

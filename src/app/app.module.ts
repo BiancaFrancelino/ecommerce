@@ -13,6 +13,9 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
+import { CondpagComponent } from './condpag/condpag.component';
+import { CondpagListarComponent } from './condpag/condpag-listar/condpag-listar.component';
+import { CondpagFormComponent } from './condpag/condpag-form/condpag-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     CategoriaComponent,
     CategoriaListarComponent,
-    CategoriaFormComponent
+    CategoriaFormComponent,
+    CondpagComponent,
+    CondpagListarComponent,
+    CondpagFormComponent
   ],
   imports: [
     BrowserModule,
