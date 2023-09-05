@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { CondpagComponent } from './condpag/condpag.component';
 import { CondpagListarComponent } from './condpag/condpag-listar/condpag-listar.component';
 import { CondpagFormComponent } from './condpag/condpag-form/condpag-form.component';
+import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/subcategoria-listar.component';
+import { SubcategoriaFormComponent } from './subcategoria/subcategoria-form/subcategoria-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CondpagFormComponent } from './condpag/condpag-form/condpag-form.compon
     CategoriaFormComponent,
     CondpagComponent,
     CondpagListarComponent,
-    CondpagFormComponent
+    CondpagFormComponent,
+    SubcategoriaListarComponent,
+    SubcategoriaFormComponent
   ],
   imports: [
     BrowserModule,
