@@ -7,6 +7,12 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
 import { CondpagComponent } from './condpag/condpag.component';
 import { CondpagListarComponent } from './condpag/condpag-listar/condpag-listar.component';
 import { CondpagFormComponent } from './condpag/condpag-form/condpag-form.component';
+import { SubcategoriaComponent } from './subcategoria/subcategoria.component';
+import { SubcategoriaFormComponent } from './subcategoria/subcategoria-form/subcategoria-form.component';
+import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/subcategoria-listar.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosListarComponent } from './usuarios/usuarios-listar/usuarios-listar.component';
+import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -24,6 +30,20 @@ const routes: Routes = [
     {path:'listar', component:CondpagListarComponent},
     {path:'form', component:CondpagFormComponent},
     {path:'form/:indice', component:CondpagFormComponent}
+   ]},
+   {path:'subcategoria', component:SubcategoriaComponent,
+   children:[
+    {path:'',redirectTo:'listar', pathMatch:'full'} ,
+    {path:'listar', component:SubcategoriaListarComponent},
+    {path:'form', component:SubcategoriaFormComponent},
+    {path:'form/:indice', component:SubcategoriaFormComponent}
+   ]},
+   {path:'usuarios', component:UsuariosComponent,
+   children:[
+    {path:'',redirectTo:'listar', pathMatch:'full'} ,
+    {path:'listar', component:UsuariosListarComponent},
+    {path:'form', component:UsuariosFormComponent},
+    {path:'form/:indice', component:UsuariosFormComponent}
    ]}
 ];
 

@@ -4,13 +4,14 @@ import { FirebaseService } from '../firebase.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SubcategoriaService {
+export class UsuariosService {
+
   constructor(
     public firebase_service:FirebaseService
   ) { }
 
   ref(){
-    return this.firebase_service.ref().child('/subcategoria');
+    return this.firebase_service.ref().child('/usuarios');
   }
 
   salvar(dados:any){

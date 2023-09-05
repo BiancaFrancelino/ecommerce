@@ -1,31 +1,35 @@
 
 <div class="card-body">
     <button class="btn btn-primary" style="float:right;margin-bottom:10px;margin-top:20px;background-color: #4154f1;" routerLink="../form">
-        <span class="bi bi-plus"></span>Novo
+        <span class="bi bi-plus"></span> Novo
     </button>
 
-    <h5 class="card-title">SubCategoria</h5>
+    <h5 class="card-title">Usuários</h5>
 
     <table class="table">
         <thead>
         <tr>
             <th>#</th>
-            <th>Descrição</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
             <th>Editar</th>
             <th>Excluir</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let subcategoria of dados">
+        <tr *ngFor="let usuarios of dados">
             <th scope="row">1</th>
-            <td>{{ subcategoria.descricao}}</td>
+            <td>{{ usuarios.descricao}}</td>
+            <td>{{ usuarios.email}}</td>
+            <td>{{ usuarios.senha}}</td>
             <td>
                 <span class="bi bi-pencil"
-                    (click)="editar(subcategoria.indice)"
+                    (click)="editar(usuarios.indice)"
                 ></span></td>
             <td>
                 <span class="bi bi-trash" 
-                    (click)="excluir(subcategoria.indice)"
+                    (click)="excluir(usuarios.indice)"
                 ></span>
             </td>
         </tr>

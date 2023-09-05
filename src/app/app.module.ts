@@ -18,6 +18,10 @@ import { CondpagListarComponent } from './condpag/condpag-listar/condpag-listar.
 import { CondpagFormComponent } from './condpag/condpag-form/condpag-form.component';
 import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/subcategoria-listar.component';
 import { SubcategoriaFormComponent } from './subcategoria/subcategoria-form/subcategoria-form.component';
+import { SubcategoriaComponent } from './subcategoria/subcategoria.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosListarComponent } from './usuarios/usuarios-listar/usuarios-listar.component';
+import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { SubcategoriaFormComponent } from './subcategoria/subcategoria-form/subc
     CondpagListarComponent,
     CondpagFormComponent,
     SubcategoriaListarComponent,
-    SubcategoriaFormComponent
+    SubcategoriaFormComponent,
+    SubcategoriaComponent,
+    UsuariosComponent,
+    UsuariosListarComponent,
+    UsuariosFormComponent
   ],
   imports: [
     BrowserModule,
