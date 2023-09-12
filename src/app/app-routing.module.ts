@@ -13,6 +13,9 @@ import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosListarComponent } from './usuarios/usuarios-listar/usuarios-listar.component';
 import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
+import { ProdutoFormComponent } from './produto/produto-form/produto-form.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -44,6 +47,13 @@ const routes: Routes = [
     {path:'listar', component:UsuariosListarComponent},
     {path:'form', component:UsuariosFormComponent},
     {path:'form/:indice', component:UsuariosFormComponent}
+   ]},
+   {path:'produto', component:ProdutoComponent,
+   children:[
+    {path:'',redirectTo:'listar', pathMatch:'full'} ,
+    {path:'listar', component:ProdutoListarComponent},
+    {path:'form', component:ProdutoFormComponent},
+    {path:'form/:indice', component:ProdutoFormComponent}
    ]}
 ];
 

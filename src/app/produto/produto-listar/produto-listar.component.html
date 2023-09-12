@@ -4,30 +4,37 @@
         <span class="bi bi-plus"></span>Novo
     </button>
 
-    <h5 class="card-title">SubCategoria</h5>
+    <h5 class="card-title">Produto</h5>
 
     <table class="table">
         <thead>
         <tr>
             <th>#</th>
+            <th>Nome</th>
+            <th>Preço</th>
             <th>Descrição</th>
             <th>Categoria</th>
+            <th>SubCategoria</th>
             <th>Editar</th>
             <th>Excluir</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let subcategoria of dados">
+        <tr *ngFor="let produto of dados">
             <th scope="row">1</th>
-            <td>{{ subcategoria.descricao}}</td>
-            <td>{{ subcategoria.categoria}}</td>
+            <td>{{ produto.nome}}</td>
+            <td>{{ produto.preco}}</td>
+            <td>{{ produto.descricao}}</td>
+            <td>{{ produto.categoria}}</td>
+            <td>{{ produto.subcategoria}}</td>
+
             <td>
                 <span class="bi bi-pencil"
-                    (click)="editar(subcategoria.indice)"
+                    (click)="editar(produto.indice)"
                 ></span></td>
             <td>
                 <span class="bi bi-trash" 
-                    (click)="excluir(subcategoria.indice)"
+                    (click)="excluir(produto.indice)"
                 ></span>
             </td>
         </tr>

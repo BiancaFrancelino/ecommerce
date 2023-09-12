@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Cadastro de Produto</h5>
+  
+      <form>
+        <div class="row mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" [(ngModel)]="nome" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="preco" class="form-label">Preço</label>
+            <input type="text" name="preco" class="form-control" id="preco" [(ngModel)]="preco" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" name="descricao" class="form-control" id="descricao" [(ngModel)]="descricao" >
+        </div>
+<!--
+        <div class="row mb-3">
+          <label for="categoria" class="form-label">Categoria</label>
+          <select name="categoria" id="categoria" [(ngModel)]="categoria">
+            <option value="">Selecione</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="subcategoria" class="form-label">SubCategoria</label>
+          <select [disabled]="is_desabilidado" name="subcategoria" id="subcategoria" [(ngModel)]="subcategoria">
+            <option value="">Selecione</option>
+          </select>
+        </div>
+      -->
+
+        <div class="col-12">
+          <label for="categoria" class="form-label">Categoria</label>
+          <select class="form-control" [(ngModel)]="categoria" name="categoria" (change)="listarSubcategoria(categoria)">
+            <option *ngFor="let categoria of categorias" [value]="categoria.indice" [innerHTML]="categoria.descricao"
+            ></option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="categoria" class="form-label">Subcategoria</label>
+          <select [disabled]="is_desabilidado" class="form-control" [(ngModel)]="subcategoria" name="subcategoria">
+              <option *ngFor="let subcategoria of subcategorias" [value]="subcategoria.indice" [innerHTML]="subcategoria.descricao"
+              ></option>
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary m-2" (click)="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-secondary m-2" routerLink="../listar">Voltar</button>
+        </div>
+      </form>
+    </div>
+  </div>
