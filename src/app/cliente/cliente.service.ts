@@ -4,13 +4,14 @@ import { FirebaseService } from '../firebase.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SubcategoriaService {
+export class ClienteService {
+
   constructor(
     public firebase_service:FirebaseService
   ) { }
 
   ref(){
-    return this.firebase_service.ref().child('/subcategoria');
+    return this.firebase_service.ref().child('/cliente');
   }
 
   salvar(dados:any){
@@ -33,23 +34,5 @@ export class SubcategoriaService {
     this.ref().child('/' + indice)
     .update(dados)
     .then();
-  }
-
-  async getByIndice(indice:string) {
-    let subcategoria:any;
-    await this.ref().orderByKey()
-      .equalTo(indice)
-      .once('value')
-      .then( function(snapshot) {
-        if (snapshot.exists()) {
-          let response = Object.values(snapshot.val())[0];
-  
-          if (response == null) return;
-  
-          subcategoria = response;
-        }
-      });
-  
-    return subcategoria;
   }
 }

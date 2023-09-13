@@ -28,14 +28,11 @@ export class ProdutoFormComponent {
     public subcategoriaService:SubcategoriaService
   ){
     this.listarCategoria();
-    this.activated_route.params
-    .subscribe(
-      (params:any) => {
-        // Caso seja um registro novo
-        // interronper o método
-        if (params.indice == undefined) return;
+    this.activated_route.params.subscribe((params:any) => {
+        if (params.indice == undefined) 
+        return;
 
-        this.categoriaService.ref()
+        this.produtoService.ref()
         .child('/' + params.indice)
         .on('value',(snapshot:any) => {
           let dado:any    = snapshot.val();
@@ -43,29 +40,56 @@ export class ProdutoFormComponent {
           this.descricao  = dado.descricao;
           this.nome  = dado.nome;
           this.preco  = dado.preco;
+          this.categoria = dado.categoria;
+          this.subcategoria = dado.subcategoria;
         });
       }
     );
   }
-  
-  salvar(){
-    let dados = {
-      descricao:this.descricao,
-      nome:this.nome,
-      preco:this.preco
-    };
 
-    if (dados.descricao == ''){
-      document.querySelector('#descricao')
-      ?.classList.add('has-error');
+  salvar() {
+
+    if(this.nome == '') {
+      document.querySelector('#nome')?.classList.add('has-errors');
       return;
     }
 
-    if (this.indice == ''){    
-      this.categoriaService.salvar(dados);
-    }else{
-      this.categoriaService.editar(this.indice,dados);
+    if(this.preco == 0) {
+      document.querySelector('#preco')?.classList.add('has-errors');
+      return;
     }
+
+    if(this.descricao == '') {
+      document.querySelector('#descricao')?.classList.add('has-errors');
+      return;
+    }
+
+    if(this.categoria == '') {
+      document.querySelector('#categoria')?.classList.add('has-errors');
+      return;
+    }else{
+      document.querySelector('#categoria')?.classList.remove('has-errors');    
+    }
+
+    if(this.indice === '') {
+      this.produtoService.salvar({
+        nome      : this.nome,
+        preco     : this.preco,
+        descricao : this.descricao,
+        categoria : this.categoria,
+        subcategoria : this.subcategoria
+      })
+    }else {
+      let dados = {
+        nome      : this.nome,
+        preco     : this.preco,
+        descricao : this.descricao,
+        categoria : this.categoria,
+        subcategoria : this.subcategoria
+      };
+      this.produtoService.editar(this.indice, dados);
+    }
+    this.router.navigate(['/produto']);
   }
 
   listarCategoria(){

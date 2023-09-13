@@ -16,6 +16,9 @@ import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.co
 import { ProdutoComponent } from './produto/produto.component';
 import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
 import { ProdutoFormComponent } from './produto/produto-form/produto-form.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
+import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -54,6 +57,13 @@ const routes: Routes = [
     {path:'listar', component:ProdutoListarComponent},
     {path:'form', component:ProdutoFormComponent},
     {path:'form/:indice', component:ProdutoFormComponent}
+   ]},
+   {path:'cliente', component:ClienteComponent,
+   children:[
+    {path:'',redirectTo:'listar', pathMatch:'full'} ,
+    {path:'listar', component:ClienteListarComponent},
+    {path:'form', component:ClienteFormComponent},
+    {path:'form/:indice', component:ClienteFormComponent}
    ]}
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdutoService } from '../produto.service';
 import { CategoriaService } from 'src/app/categoria/categoria.service';
+import { SubcategoriaService } from 'src/app/subcategoria/subcategoria.service';
 
 @Component({
   selector: 'app-produto-listar',
@@ -11,11 +12,13 @@ import { CategoriaService } from 'src/app/categoria/categoria.service';
 export class ProdutoListarComponent implements OnInit{
   public dados:Array<any> = [];
   public descricaoCategoria:string = '';
+  public descricaoSubcategoria:string = '';
   
   constructor(
     public produtoService:ProdutoService,
     public router:Router,
-    public categoriaService:CategoriaService
+    public categoriaService:CategoriaService,
+    public subcategoriaService:SubcategoriaService
   ){}
 
   ngOnInit(): void {
@@ -30,17 +33,19 @@ export class ProdutoListarComponent implements OnInit{
       .forEach(
         async (e:any,i:number) => {
           let categoria:any = await this.categoriaService.getByIndice(e.categoria);
+          let subcategoria:any = await this.subcategoriaService.getByIndice(e.subcategoria);
 
           this.dados.push({
             descricao: e.descricao,
-            categoria: this.descricaoCategoria,
+            nome: e.nome,
+            preco:e.preco,
+            categoria: categoria.descricao,
+            subcategoria: subcategoria.descricao,
             indice: Object.keys(snapshot.val())[i]
           });
         }
       );
     });
-
-    console.log(this.dados);
   }
   
   excluir(key:string){

@@ -39,8 +39,6 @@ export class SubcategoriaListarComponent implements OnInit{
         }
       );
     });
-
-    console.log(this.dados);
   }
   
   excluir(key:string){
