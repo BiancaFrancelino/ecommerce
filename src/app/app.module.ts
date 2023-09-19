@@ -28,6 +28,12 @@ import { ProdutoFormComponent } from './produto/produto-form/produto-form.compon
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
 import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import { FornecedorComponent } from './fornecedor/fornecedor.component';
+import { FornecedorListarComponent } from './fornecedor/fornecedor-listar/fornecedor-listar.component';
+import { FornecedorFormComponent } from './fornecedor/fornecedor-form/fornecedor-form.component';
+import { EstadoComponent } from './estado/estado.component';
+import { EstadoFormComponent } from './estado/estado-form/estado-form.component';
+import { EstadoListarComponent } from './estado/estado-listar/estado-listar.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +59,13 @@ import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.
     ProdutoFormComponent,
     ClienteComponent,
     ClienteFormComponent,
-    ClienteListarComponent
+    ClienteListarComponent,
+    FornecedorComponent,
+    FornecedorListarComponent,
+    FornecedorFormComponent,
+    EstadoComponent,
+    EstadoFormComponent,
+    EstadoListarComponent
   ],
   imports: [
     BrowserModule,

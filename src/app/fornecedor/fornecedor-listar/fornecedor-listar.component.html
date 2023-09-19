@@ -1,0 +1,41 @@
+
+<div class="card-body">
+    <button class="btn btn-primary" style="float:right;margin-bottom:10px;margin-top:20px;background-color: #4154f1;" routerLink="../form">
+        <span class="bi bi-plus"></span>Novo
+    </button>
+
+    <h5 class="card-title">Fornecedor</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome Fantasia</th>
+            <th>Razão Social</th>
+            <th>CNPJ</th>
+            <th>E-mail</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fornecedor of dados">
+            <th scope="row">1</th>
+            <td>{{ fornecedor.nomeFantasia}}</td>
+            <td>{{ fornecedor.razaoSocial}}</td>
+            <td>{{ fornecedor.cnpj}}</td>
+            <td>{{ fornecedor.email}}</td>
+
+            <td>
+                <span class="bi bi-pencil"
+                    (click)="editar(fornecedor.indice)"
+                ></span></td>
+            <td>
+                <span class="bi bi-trash" 
+                    (click)="excluir(fornecedor.indice)"
+                ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

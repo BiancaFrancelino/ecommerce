@@ -1,0 +1,36 @@
+
+<div class="card-body">
+    <button class="btn btn-primary" style="float:right;margin-bottom:10px;margin-top:20px;background-color: #4154f1;" routerLink="../form">
+        <span class="bi bi-plus"></span>Novo
+    </button>
+
+    <h5 class="card-title">Estado</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Sigla</th>
+            <th>Nome</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let estado of dados">
+            <th scope="row">1</th>
+            <td>{{ estado.nome}}</td>
+            <td>{{ estado.sigla}}</td>
+            <td>
+                <span class="bi bi-pencil"
+                    (click)="editar(estado.indice)"
+                ></span></td>
+            <td>
+                <span class="bi bi-trash" 
+                    (click)="excluir(estado.indice)"
+                ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

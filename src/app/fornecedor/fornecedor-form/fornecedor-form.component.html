@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Cadastro de Fornecedor</h5>
+  
+      <form>
+        <div class="row mb-3">
+            <label for="nomeFantasia" class="form-label">Nome Fantasia</label>
+            <input type="text" name="nomeFantasia" class="form-control" id="nomeFantasia" [(ngModel)]="nomeFantasia" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="razaoSocial" class="form-label">Razão Social</label>
+            <input type="text" name="razaoSocial" class="form-control" id="razaoSocial" [(ngModel)]="razaoSocial" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="cnpj" class="form-label">CNPJ</label>
+            <input type="text" name="cnpj" class="form-control" id="cnpj" [(ngModel)]="cnpj" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="contato" class="form-label">Contato</label>
+            <input type="text" name="contato" class="form-control" id="contato" [(ngModel)]="contato" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="text" name="email" class="form-control" id="email" [(ngModel)]="email" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="logradouro" class="form-label">Logradouro</label>
+            <input type="text" name="logradouro" class="form-control" id="logradouro" [(ngModel)]="logradouro" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input type="text" name="complemento" class="form-control" id="complemento" [(ngModel)]="complemento" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input type="text" name="bairro" class="form-control" id="bairro" [(ngModel)]="bairro" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input type="text" name="cidade" class="form-control" id="cidade" [(ngModel)]="cidade" >
+        </div>
+
+        <div class="row mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <select name="estado" id="estado" [(ngModel)]="estado">
+              <option value="">Selecione</option>
+            </select>
+          </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary m-2" (click)="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-secondary m-2" routerLink="../listar">Voltar</button>
+        </div>
+      </form>
+    </div>
+  </div>
