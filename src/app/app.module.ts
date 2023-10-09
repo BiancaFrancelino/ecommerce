@@ -34,6 +34,7 @@ import { FornecedorFormComponent } from './fornecedor/fornecedor-form/fornecedor
 import { EstadoComponent } from './estado/estado.component';
 import { EstadoFormComponent } from './estado/estado-form/estado-form.component';
 import { EstadoListarComponent } from './estado/estado-listar/estado-listar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { EstadoListarComponent } from './estado/estado-listar/estado-listar.comp
       appId: "1:970366498916:web:3a31b009f18678fb530771",
       measurementId: "G-4BP9WSWCLX"}),
       AngularFireStorageModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

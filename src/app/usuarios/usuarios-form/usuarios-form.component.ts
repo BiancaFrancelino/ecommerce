@@ -19,7 +19,7 @@ export class UsuariosFormComponent {
     public activated_route:ActivatedRoute,
     public router:Router
   ){
-    this.activated_route.params.subscribe((params:any) => {
+    /*this.activated_route.params.subscribe((params:any) => {
       if(params.indice === undefined)
         return;
 
@@ -29,7 +29,7 @@ export class UsuariosFormComponent {
         this.email = dado.email;
         this.senha = dado.senha;
       });
-    });
+    });*/
   }
 
   salvar() {
@@ -48,21 +48,23 @@ export class UsuariosFormComponent {
       return;
     }
 
-    if(this.indice === '') {
-      this.usuariosService.salvar({
-        descricao : this.descricao,
-        email : this.email,
-        senha : this.senha
-      })
+    let dados = {
+      senha : this.senha,
+      email : this.email,
+      descricao : this.descricao
+    };
+
+    let resultado = null;
+
+    if(this.indice === '') {      
+      resultado = this.usuariosService.salvar(dados).subscribe();
     }else {
-      let dados = {
-        descricao:this.descricao,
-        email:this.email,
-        senha:this.senha
-      };
-      this.usuariosService.editar(this.indice, dados);
+      this.usuariosService.editar(dados,this.indice);
     }
-    this.router.navigate(['/usuarios']);
+
+    console.log(resultado);
+
+    //this.router.navigate(['/usuarios']);
   }
 }
  

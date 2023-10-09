@@ -16,30 +16,19 @@ export class UsuariosListarComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.usuariosService.listar()
-    .on('value',(snapshot:any) => {
-      this.dados.splice(0,this.dados.length);
+    this.listar();
+  }
 
-      console.log( snapshot.val); 
-      let response = snapshot.val();
-      if (response == null) return;  
-      
-      Object.values( response )
-      .forEach(
-        (e:any,i:number) => {
-          this.dados.push({
-            descricao: e.descricao,
-            email: e.email,
-            senha: e.senha,
-            indice: Object.keys(snapshot.val())[i]
-          });
-        }
-      );
+  listar(){
+    this.usuariosService.listar().subscribe((dados:any) => {
+      this.dados = dados;
     });
   }
   
-  excluir(key:string){
-    this.usuariosService.excluir(key);
+  excluir(id:number){
+    return this.usuariosService.excluir(id).subscribe(()=>{
+      this.listar();
+    })
   }
   
   editar(key:string){
