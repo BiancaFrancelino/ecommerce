@@ -28,7 +28,7 @@ export class UsuariosListarComponent implements OnInit{
   excluir(id:number){
     return this.usuariosService.excluir(id).subscribe(()=>{
       this.listar();
-    })
+    });
   }
   
   editar(key:string){

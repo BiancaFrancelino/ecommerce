@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./usuarios-form.component.scss']
 })
 export class UsuariosFormComponent {
-  public descricao:string = '';
+  public nome:string = '';
   public email:string = '';
   public senha:string = '';
   public indice:string = '';
@@ -33,8 +33,8 @@ export class UsuariosFormComponent {
   }
 
   salvar() {
-    if(this.descricao == '') {
-      document.querySelector('#descricao')?.classList.add('has-errors');
+    if(this.nome == '') {
+      document.querySelector('#nome')?.classList.add('has-errors');
       return;
     }
 
@@ -51,7 +51,7 @@ export class UsuariosFormComponent {
     let dados = {
       senha : this.senha,
       email : this.email,
-      descricao : this.descricao
+      nome : this.nome
     };
 
     let resultado = null;

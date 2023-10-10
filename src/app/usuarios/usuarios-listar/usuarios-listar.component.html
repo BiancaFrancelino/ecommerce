@@ -19,18 +19,14 @@
         </thead>
         <tbody>
         <tr *ngFor="let usuarios of dados">
-            <th scope="row">1</th>
-            <td>{{ usuarios.descricao}}</td>
+            <td>{{ usuarios.id}}</td>
+            <td>{{ usuarios.nome}}</td>
             <td>{{ usuarios.email}}</td>
             <td>{{ usuarios.senha}}</td>
             <td>
-                <span class="bi bi-pencil"
-                    (click)="editar(usuarios.indice)"
-                ></span></td>
+                <span class="bi bi-pencil" (click)="editar(usuarios.id)"></span></td>
             <td>
-                <span class="bi bi-trash" 
-                    (click)="excluir(usuarios.indice)"
-                ></span>
+                <span class="bi bi-trash" (click)="excluir(usuarios.id)"></span>
             </td>
         </tr>
         </tbody>
